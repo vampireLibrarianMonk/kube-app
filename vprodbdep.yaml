@@ -1,7 +1,7 @@
 apiVersion: app/v1
 kind: Deployment
 metadata:
-  name: vprod
+  name: vprodb
   labels:
     app: vprodb
 spec:
@@ -15,7 +15,7 @@ spec:
         app: vprodb
     spec:
       containers:
-        - name: vp
+        - name: vpordb
           image: pmflani/vprofileapp
           args:
             - "ignore-db-dir=lost+found"
