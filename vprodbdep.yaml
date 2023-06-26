@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: vprodb
-          image: pmflani/vprofileapp
+          image: pmflani/vprofiledb
           args:
             - "--ignore-db-dir=lost+found"
           volumeMounts:
