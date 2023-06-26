@@ -1,4 +1,4 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vprodb
@@ -18,7 +18,7 @@ spec:
         - name: vprodb
           image: pmflani/vprofileapp
           args:
-            - "ignore-db-dir=lost+found"
+            - "--ignore-db-dir=lost+found"
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: vpro-db-data
@@ -35,6 +35,7 @@ spec:
         zone: us-east-1a
       volumes:
         - name: vpro-db-data
+          # This AWS EBS volume must already exist.
           awsElasticBlockStore:
             volumeID: vol-01b4437582acddfe8
             fsType: ext4
